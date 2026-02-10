@@ -31,6 +31,7 @@ model User {
   accounts      Account[]
   subscriptions Subscription[]
   payments      Payment[]
+  meetings     Meeting[]
 
   ownedOrganizations  Organization[]
   organizationMembers OrganizationMember[]
@@ -394,4 +395,110 @@ enum PaymentStatus {
   PAID
   FAILED
   REFUNDED
+}
+
+////////////////////
+// MEETING BOT
+////////////////////
+
+model Meeting {
+  id          String        @id @default(cuid()) @map("_id")
+  title       String
+  meetingUrl  String
+  status      MeetingStatus @default(PENDING)
+  startTime   DateTime?
+  endTime     DateTime?
+  duration    Int?          // in seconds
+  
+  // Bot configuration
+  recordAudio Boolean       @default(true)
+  recordVideo Boolean       @default(true)
+  autoTranscribe Boolean    @default(true)
+  
+  // Owner
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+  
+  recordings  Recording[]
+  transcripts Transcript[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@map("meetings")
+}
+
+model Recording {
+  id         String         @id @default(cuid()) @map("_id")
+  meetingId  String
+  meeting    Meeting        @relation(fields: [meetingId], references: [id], onDelete: Cascade)
+  
+  fileType   RecordingType
+  fileName   String
+  fileSize   Int?           // in bytes
+  duration   Int?           // in seconds
+  
+  // Storage
+  localPath  String?
+  cloudUrl   String?
+  uploadStatus UploadStatus @default(PENDING)
+  
+  // Metadata
+  resolution String?        // e.g., "1920x1080"
+  codec      String?        // e.g., "vp9", "opus"
+  
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([meetingId])
+  @@map("recordings")
+}
+
+model Transcript {
+  id         String   @id @default(cuid()) @map("_id")
+  meetingId  String
+  meeting    Meeting  @relation(fields: [meetingId], references: [id], onDelete: Cascade)
+  
+  content    String   @db.String
+  speakers   Json?    // [{id, name, timestamps: [{start, end}]}]
+  language   String   @default("en")
+  duration   Int?     // in seconds
+  
+  // AI Metadata
+  model      String?  // e.g., "mistral-ai/whisper"
+  confidence Float?   // average confidence score
+  
+  // Storage
+  cloudUrl   String?
+  format     String   @default("json") // json, srt, vtt
+  
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([meetingId])
+  @@map("transcripts")
+}
+
+enum MeetingStatus {
+  PENDING
+  SCHEDULED
+  JOINING
+  RECORDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  CANCELLED
+}
+
+enum RecordingType {
+  AUDIO
+  VIDEO
+}
+
+enum UploadStatus {
+  PENDING
+  UPLOADING
+  COMPLETED
+  FAILED
 }
