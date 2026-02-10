@@ -20,34 +20,34 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "GitSprint - Agile Sprint Management for GitHub",
-    template: "%s | GitSprint",
+    default: "Meetup - Agile Sprint Management for GitHub",
+    template: "%s | Meetup",
   },
   description:
-    "GitSprint helps teams manage agile sprints directly integrated with GitHub. Plan, track, and deliver your projects faster with seamless GitHub integration.",
+    "Meetup helps teams manage agile sprints directly integrated with GitHub. Plan, track, and deliver your projects faster with seamless GitHub integration.",
   keywords: [
     "sprint management",
     "agile",
     "scrum",
     "GitHub",
     "project management",
-    "GitSprint",
+    "Meetup",
   ],
-  authors: [{ name: "GitSprint" }],
-  creator: "GitSprint",
+  authors: [{ name: "Meetup" }],
+  creator: "Meetup",
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "GitSprint",
-    title: "GitSprint - Agile Sprint Management for GitHub",
+    siteName: "Meetup",
+    title: "Meetup - Agile Sprint Management for GitHub",
     description:
-      "GitSprint helps teams manage agile sprints directly integrated with GitHub. Plan, track, and deliver your projects faster.",
+      "Meetup helps teams manage agile sprints directly integrated with GitHub. Plan, track, and deliver your projects faster.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "GitSprint - Agile Sprint Management for GitHub",
+    title: "Meetup - Agile Sprint Management for GitHub",
     description:
-      "GitSprint helps teams manage agile sprints directly integrated with GitHub. Plan, track, and deliver your projects faster.",
+      "Meetup helps teams manage agile sprints directly integrated with GitHub. Plan, track, and deliver your projects faster.",
   },
   robots: {
     index: true,

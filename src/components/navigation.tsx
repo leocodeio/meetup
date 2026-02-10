@@ -46,14 +46,14 @@ export function Navigation() {
             <div className="h-10 w-10 relative transition-transform group-hover:scale-110">
               <Image
                 src="/favicon.ico"
-                alt="GitSprint Logo"
+                alt="Meetup Logo"
                 fill
                 className="object-contain"
                 priority
               />
             </div>
             <span className="font-bold text-2xl tracking-tight hidden sm:inline">
-              GitSprint
+              Meetup
             </span>
           </Link>
         </div>

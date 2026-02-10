@@ -36,17 +36,17 @@ export function Header({ user, page }: HeaderProps) {
             <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-lg border border-primary/30 bg-muted flex items-center justify-center">
               <Image
                 src="/favicon.ico"
-                alt="GitSprint Logo"
+                alt="Meetup Logo"
                 width={36}
                 height={36}
                 className="h-7 w-7 sm:h-9 sm:w-9 rounded-md"
               />
             </div>
-            <span className="font-bold text-xs sm:text-sm truncate">GitSprint</span>
+            <span className="font-bold text-xs sm:text-sm truncate">Meetup</span>
           </Link>
           <div className="hidden md:block">
             <h1 className="text-sm font-semibold text-muted-foreground flex items-center gap-2">
-              <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/70">GitSprint</span>
+              <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/70">Meetup</span>
               <span className="text-muted-foreground/30">/</span>
               <span className="italic font-medium text-foreground/80">{page}</span>
             </h1>

@@ -10,7 +10,7 @@ export interface WorkspaceSelection {
   timestamp: number;
 }
 
-const STORAGE_KEY = "gitsprint_recent_workspace";
+const STORAGE_KEY = "meetup_recent_workspace";
 const WORKSPACE_CHANGE_EVENT = "workspace-selection-changed";
 
 /**

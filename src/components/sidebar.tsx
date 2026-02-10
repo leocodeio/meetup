@@ -146,7 +146,7 @@ export function Sidebar({ user }: SidebarProps) {
               <div className="flex items-center gap-2 justify-center">
                 <Image
                   src="/favicon.ico"
-                  alt="GitSprint Logo"
+                  alt="Meetup Logo"
                   width={30}
                   height={30}
                   className="h-7 w-7 sm:h-8 sm:w-8 border border-primary/30 rounded-md p-1"

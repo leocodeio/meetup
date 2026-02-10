@@ -59,7 +59,7 @@ const baseStyles = `
 </style>
 `;
 
-const baseLayout = (content: string, appName: string = "GitSprint") => `
+const baseLayout = (content: string, appName: string = "Meetup") => `
 <!DOCTYPE html>
 <html>
 <head>
@@ -317,7 +317,7 @@ export function getTemplate(
 
     // Add default appName if not provided
     const varsWithDefaults: TemplateVariables = {
-        appName: "GitSprint",
+        appName: "Meetup",
         ...variables,
     };
 
