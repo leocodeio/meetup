@@ -12,32 +12,32 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-// import { Input } from "@/components/ui/input";
-// import { Label } from "@/components/ui/label";
-// import { Separator } from "@/components/ui/separator";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
 import {
   betterAuthGoogle,
   betterAuthSignUp,
 } from "@/server/services/auth/auth-client";
-import { Home } from "lucide-react";
+import { Home, User, Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { PROFILE_PICTURES } from "@/lib/models/profilePictures";
-// import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { toast } from "sonner";
 
 export default function SignupPage() {
   const t = useTranslations("Auth");
   const params = useParams();
   const locale = params.locale as string;
-  // const [showPassword, setShowPassword] = useState(false);
-  // const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  // const [formData, setFormData] = useState({
-  //   name: "",
-  //   email: "",
-  //   password: "",
-  //   confirmPassword: "",
-  //   image: PROFILE_PICTURES[0],
-  // });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    image: PROFILE_PICTURES[0],
+  });
 
   const handleGoogleSignIn = async () => {
     try {
@@ -51,30 +51,30 @@ export default function SignupPage() {
     }
   };
 
-  // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-  //   if (formData.password !== formData.confirmPassword) {
-  //     toast.error("Passwords don't match");
-  //     return;
-  //   }
+    if (formData.password !== formData.confirmPassword) {
+      toast.error("Passwords don't match");
+      return;
+    }
 
-  //   try {
-  //     setIsLoading(true);
-  //     await betterAuthSignUp(
-  //       formData.name,
-  //       formData.email,
-  //       formData.password,
-  //       formData.image,
-  //       `/${locale}/dashboard`
-  //     );
-  //   } catch (error) {
-  //     console.error("Email sign up error:", error);
-  //     toast.error("Sign up failed");
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
+    try {
+      setIsLoading(true);
+      await betterAuthSignUp(
+        formData.name,
+        formData.email,
+        formData.password,
+        formData.image,
+        `/${locale}/dashboard`
+      );
+    } catch (error) {
+      console.error("Email sign up error:", error);
+      toast.error("Sign up failed");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <Card className="w-full max-w-md">
@@ -121,8 +121,8 @@ export default function SignupPage() {
           {t("signup.google")}
         </Button>
 
-        {/* Email/Password Signup - Commented Out */}
-        {/* <div className="relative">
+        {/* Email/Password Signup */}
+        <div className="relative">
           <div className="absolute inset-0 flex items-center">
             <Separator className="w-full" />
           </div>
@@ -256,9 +256,9 @@ export default function SignupPage() {
           <Button type="submit" className="w-full" disabled={isLoading}>
             {t("signup.submit")}
           </Button>
-        </form> */}
+        </form>
 
-        {/* Login Link - Commented Out */}
+        {/* Login Link */}
         <div className="text-center text-sm">
           <span className="text-muted-foreground">
             {t("signup.hasAccount")}{" "}

@@ -12,9 +12,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-// import { Input } from "@/components/ui/input";
-// import { Label } from "@/components/ui/label";
-// import { Separator } from "@/components/ui/separator";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
 import {
   betterAuthGoogle,
   betterAuthSignIn,
@@ -26,12 +26,12 @@ export default function LoginPage() {
   const t = useTranslations("Auth");
   const params = useParams();
   const locale = params.locale as string;
-  // const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  // const [formData, setFormData] = useState({
-  //   email: "",
-  //   password: "",
-  // });
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
   const handleGoogleSignIn = async () => {
     try {
@@ -45,22 +45,22 @@ export default function LoginPage() {
     }
   };
 
-  // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   try {
-  //     setIsLoading(true);
-  //     await betterAuthSignIn(
-  //       formData.email,
-  //       formData.password,
-  //       `/${locale}/dashboard`
-  //     );
-  //   } catch (error) {
-  //     console.error("Email sign in error:", error);
-  //     toast.error("Login failed");
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      setIsLoading(true);
+      await betterAuthSignIn(
+        formData.email,
+        formData.password,
+        `/${locale}/dashboard`
+      );
+    } catch (error) {
+      console.error("Email sign in error:", error);
+      toast.error("Login failed");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <Card className="w-full max-w-md">
@@ -107,8 +107,8 @@ export default function LoginPage() {
           {t("login.google")}
         </Button>
 
-        {/* Email/Password Login - Commented Out */}
-        {/* <div className="relative">
+        {/* Email/Password Login */}
+        <div className="relative">
           <div className="absolute inset-0 flex items-center">
             <Separator className="w-full" />
           </div>
@@ -170,9 +170,9 @@ export default function LoginPage() {
           <Button type="submit" className="w-full" disabled={isLoading}>
             {t("login.submit")}
           </Button>
-        </form> */}
+        </form>
 
-        {/* Signup Link - Commented Out */}
+        {/* Signup Link */}
         <div className="text-center text-sm">
           <span className="text-muted-foreground">{t("login.noAccount")} </span>
           <Link
