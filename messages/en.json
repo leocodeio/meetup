@@ -1,0 +1,668 @@
+{
+  "Navigation": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "testimonials": "Testimonials",
+    "faq": "FAQ",
+    "signIn": "Sign In",
+    "getStarted": "Get Started"
+  },
+  "Hero": {
+    "title": "Track Sprints in Seconds",
+    "subtitle": "The minimalistic sprint tool that maximizes your productivity. Track progress with minimum clicks.",
+    "cta": "Get Started",
+    "learnMore": "Learn More",
+    "badge": "Reimagining sprint tracking for modern teams"
+  },
+  "Features": {
+    "title": "Everything You Need",
+    "subtitle": "Streamlined sprint tracking with minimal friction",
+    "badge": "Features",
+    "quickTracking": {
+      "title": "Quick Tracking",
+      "description": "Log progress with just one click",
+      "badge": "Speed"
+    },
+    "minimalUI": {
+      "title": "Minimal UI",
+      "description": "Clean interface focused on what matters",
+      "badge": "Design"
+    },
+    "realTimeProgress": {
+      "title": "Real-time Progress",
+      "description": "See your team's progress instantly",
+      "badge": "Visibility"
+    },
+    "smartReminders": {
+      "title": "Smart Reminders",
+      "description": "Automated sprint reminders and updates",
+      "badge": "Automation"
+    },
+    "teamSync": {
+      "title": "Team Sync",
+      "description": "Seamless collaboration across your team",
+      "badge": "Collaboration"
+    },
+    "analytics": {
+      "title": "Simple Analytics",
+      "description": "Track sprint velocity and insights",
+      "badge": "Insights"
+    },
+    "clickMinimization": {
+      "badge": "🚀 Core Feature",
+      "title": "Minimum Clicks",
+      "description": "Our philosophy is simple: fewer clicks, more done. We've designed every interaction to be as efficient as possible, so you can focus on building, not clicking.",
+      "features": {
+        "oneClickUpdates": "One-click updates",
+        "keyboardShortcuts": "Keyboard shortcuts",
+        "quickActions": "Quick actions menu"
+      }
+    }
+  },
+  "Testimonials": {
+    "title": "Our Philosophy",
+    "subtitle": "Why we built GitSprint",
+    "badge": "Vision",
+    "heading": "Built for speed,",
+    "headingHighlight": "not meetings",
+    "description": "We're on a mission to reduce developer friction.",
+    "trustIndicator": "Join 0+ teams building the future",
+    "stats": {
+      "activeDevelopers": "Active Teams",
+      "appsBuilt": "Sprints Completed",
+      "countries": "Countries",
+      "uptime": "Uptime"
+    },
+    "items": [
+      {
+        "name": "Sarah Johnson",
+        "role": "Product Manager at TechCorp",
+        "company": "TechCorp",
+        "content": "meetup revolutionized how we track sprints. What used to take 30 minutes now takes 5. Our team velocity has never been higher.",
+        "rating": 5
+      },
+      {
+        "name": "Michael Chen",
+        "role": "Tech Lead at StartupXYZ",
+        "company": "StartupXYZ",
+        "content": "The minimal interface is exactly what we needed. No clutter, just pure productivity. Our sprint planning is twice as fast now.",
+        "rating": 5
+      },
+      {
+        "name": "Emily Rodriguez",
+        "role": "Engineering Manager",
+        "company": "InnovateLabs",
+        "content": "Finally, a sprint tool that doesn't get in the way. Our developers actually enjoy updating their progress now. Game changer for our daily standups.",
+        "rating": 5
+      },
+      {
+        "name": "David Kim",
+        "role": "Scrum Master",
+        "company": "DevStudio",
+        "content": "We've tried every sprint tool out there. meetup is the only one that truly understands minimalism. One-click updates are a lifesaver.",
+        "rating": 5
+      },
+      {
+        "name": "Lisa Thompson",
+        "role": "CTO at ScaleUp Inc",
+        "company": "ScaleUp Inc",
+        "content": "Our sprint velocity increased by 35% after adopting meetup. The clean UI and smart features make tracking effortless.",
+        "rating": 5
+      },
+      {
+        "name": "Alex Rivera",
+        "role": "Senior Developer",
+        "company": "CodeCraft",
+        "content": "The keyboard shortcuts and quick actions are brilliant. I can update my entire sprint status in under a minute. This is how sprint tools should be.",
+        "rating": 5
+      }
+    ]
+  },
+  "Pricing": {
+    "title": "Simple Pricing",
+    "subtitle": "Choose the plan that works for your team",
+    "badge": "Pricing",
+    "heading": "Choose the perfect plan for",
+    "headingHighlight": "your team",
+    "description": "Start free and scale as your team grows. All plans include core sprint tracking features.",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "savePercent": "Save 20%",
+    "mostPopular": "Most Popular",
+    "year": "year",
+    "month": "month",
+    "forever": "forever",
+    "limitations": "Limitations:",
+    "faqTitle": "Frequently Asked Questions",
+    "enterpriseCta": {
+      "title": "Need a Custom Solution?",
+      "description": "Contact our sales team for custom pricing and enterprise features tailored to your organization's needs.",
+      "button": "Contact Sales Team"
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "description": "Perfect for individual developers and small teams",
+        "cta": "Get Started Free",
+        "features": {
+          "projects": "Up to 3 sprints",
+          "auth": "Basic authentication",
+          "support": "Community support",
+          "storage": "1GB storage",
+          "analytics": "Basic analytics",
+          "email": "Email support"
+        },
+        "limitations": {
+          "api": "Limited API calls",
+          "domains": "No custom domains",
+          "templates": "Basic templates only"
+        }
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "Ideal for growing teams and production workflows",
+        "cta": "Start Pro Trial",
+        "features": {
+          "projects": "Unlimited sprints",
+          "auth": "Advanced authentication",
+          "support": "Priority support",
+          "storage": "100GB storage",
+          "analytics": "Advanced analytics",
+          "domains": "Custom domains",
+          "apiLimits": "API rate limits: 100k/month",
+          "collaboration": "Team collaboration",
+          "integrations": "Custom integrations"
+        }
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "For large organizations with advanced requirements",
+        "cta": "Contact Sales",
+        "features": {
+          "everything": "Everything in Pro",
+          "apiUnlimited": "Unlimited API calls",
+          "dedicatedSupport": "Dedicated support",
+          "unlimitedStorage": "Unlimited storage",
+          "advancedSecurity": "Advanced security",
+          "sla": "SLA guarantee",
+          "customDeployment": "Custom deployment",
+          "whiteLabel": "White-label options",
+          "advancedIntegrations": "Advanced integrations",
+          "phoneSupport": "24/7 phone support"
+        }
+      }
+    },
+    "faqs": {
+      "changePlan": {
+        "question": "Can I change my plan at any time?",
+        "answer": "Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate any charges."
+      },
+      "freeTrial": {
+        "question": "Is there a free trial?",
+        "answer": "Yes! We offer a 14-day free trial for all paid plans. No credit card required to start."
+      },
+      "paymentMethods": {
+        "question": "What payment methods do you accept?",
+        "answer": "We accept all major credit cards, PayPal, and bank transfers for Enterprise customers."
+      },
+      "refunds": {
+        "question": "Do you offer refunds?",
+        "answer": "Yes, we offer a 30-day money-back guarantee. If you're not satisfied, we'll refund your payment."
+      }
+    }
+  },
+  "FAQ": {
+    "badge": "FAQ",
+    "title": "Frequently Asked",
+    "titleHighlight": "Questions",
+    "subtitle": "Everything you need to know about meetup. Can't find what you're looking for? Contact our support team.",
+    "questions": {
+      "q1": {
+        "question": "What is meetup and how does it work?",
+        "answer": "meetup is a minimalistic sprint tracking tool designed to maximize team productivity. With our philosophy of minimum clicks, you can track progress, manage sprints, and collaborate with your team in seconds, not minutes."
+      },
+      "q2": {
+        "question": "How does the 'minimum clicks' philosophy work?",
+        "answer": "We've designed every interaction to require the fewest possible clicks. One-click updates, keyboard shortcuts, smart defaults, and intuitive UI mean you spend less time managing tasks and more time building products."
+      },
+      "q3": {
+        "question": "Can I use meetup for agile methodologies?",
+        "answer": "Absolutely! meetup is built specifically for agile teams. Whether you use Scrum, Kanban, or a custom methodology, our flexible sprint tracking adapts to your workflow."
+      },
+      "q4": {
+        "question": "How does team collaboration work?",
+        "answer": "meetup enables real-time collaboration with your team. See updates instantly, share progress with one click, and keep everyone aligned without unnecessary meetings or status reports."
+      },
+      "q5": {
+        "question": "Is meetup secure for handling sensitive project data?",
+        "answer": "Yes, security is a top priority. meetup includes enterprise-grade security features like encrypted data storage, secure authentication, GDPR compliance, and regular security audits."
+      },
+      "q6": {
+        "question": "Can I integrate meetup with other tools?",
+        "answer": "Yes! We offer integrations with popular tools like GitHub, Slack, and more. Our API allows for custom integrations to fit perfectly into your existing workflow."
+      },
+      "q7": {
+        "question": "What kind of support do you provide?",
+        "answer": "We offer multiple support channels: community forums, detailed documentation, video tutorials, and priority email support for Pro users. Enterprise customers get dedicated support."
+      },
+      "q8": {
+        "question": "Can I import data from other sprint tools?",
+        "answer": "Yes! meetup supports importing from popular sprint tracking tools. We also provide migration guides to help you transition smoothly from your current tool."
+      },
+      "q9": {
+        "question": "How do you handle sprint analytics?",
+        "answer": "meetup provides simple yet powerful analytics. Track sprint velocity, team productivity, completion rates, and identify bottlenecks without overwhelming you with complex dashboards."
+      },
+      "q10": {
+        "question": "What's your refund policy?",
+        "answer": "We offer a 30-day money-back guarantee for all paid plans. If you're not completely satisfied with meetup, we'll refund your payment, no questions asked."
+      }
+    },
+    "supportSection": {
+      "title": "Need More Help?",
+      "subtitle": "Our support team is here to help you succeed with meetup",
+      "options": {
+        "community": {
+          "title": "Community Support",
+          "description": "Get help from our active community of teams",
+          "action": "Join Discord"
+        },
+        "docs": {
+          "title": "Documentation",
+          "description": "Comprehensive guides and API references",
+          "action": "View Docs"
+        },
+        "enterprise": {
+          "title": "Enterprise Support",
+          "description": "Dedicated support for large organizations",
+          "action": "Contact Sales"
+        },
+        "help": {
+          "title": "Help Center",
+          "description": "Self-service resources and troubleshooting",
+          "action": "Browse Help"
+        }
+      }
+    },
+    "contactCta": {
+      "title": "Still have questions?",
+      "description": "Our friendly support team is ready to help you with any questions about meetup.",
+      "contactButton": "Contact Support",
+      "scheduleButton": "Schedule a Call"
+    }
+  },
+  "Auth": {
+    "common": {
+      "or": "Or",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "name": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "profilePicture": "Profile Picture",
+      "goHome": "Go Home"
+    },
+    "login": {
+      "title": "Welcome Back",
+      "description": "Sign in to your account to continue tracking sprints",
+      "google": "Continue with Google",
+      "submit": "Sign In",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up"
+    },
+    "signup": {
+      "title": "Create Account",
+      "description": "Start tracking sprints with minimum clicks today",
+      "google": "Continue with Google",
+      "submit": "Create Account",
+      "hasAccount": "Already have an account?",
+      "signIn": "Sign in"
+    }
+  },
+  "Dashboard": {
+    "title": "Dashboard",
+    "loading": "Loading...",
+    "signOut": "Sign Out",
+    "welcome": {
+      "title": "Welcome back!",
+      "description": "Hello {name}, here's your sprint overview."
+    },
+    "profile": {
+      "title": "Profile",
+      "name": "Name",
+      "email": "Email",
+      "edit": "Edit Profile"
+    },
+    "actions": {
+      "title": "Quick Actions",
+      "createSprint": "Create New Sprint",
+      "viewSprints": "View Sprints",
+      "settings": "Settings"
+    },
+    "stats": {
+      "title": "Statistics",
+      "sprints": "Active Sprints",
+      "completed": "Completed Sprints",
+      "velocity": "Sprint Velocity"
+    },
+    "organizations": {
+      "title": "Organizations",
+      "subtitle": "Manage your organizations",
+      "create": "Create Organization",
+      "search": "Search organizations by name or slug...",
+      "empty": "No organizations yet. Create one to get started!",
+      "noResults": "No organizations found matching your search",
+      "gridView": "Grid view",
+      "listView": "List view",
+      "members": "member|members",
+      "createdOn": "Created on",
+      "description": "Description",
+      "manageMembers": "Manage Members"
+    },
+    "members": {
+      "title": "Members",
+      "subtitle": "Manage organization members and invitations",
+      "invite": "Invite Member",
+      "inviteSuccess": "Member invited successfully",
+      "inviteError": "Failed to invite member",
+      "removeSuccess": "Member removed successfully",
+      "removeError": "Failed to remove member",
+      "updateSuccess": "Member updated successfully",
+      "updateError": "Failed to update member",
+      "email": "Email",
+      "emailPlaceholder": "Enter email address",
+      "role": "Role",
+      "status": "Status",
+      "actions": "Actions",
+      "delete": "Remove",
+      "deleteConfirm": "Are you sure you want to remove this member?",
+      "deleteTitle": "Remove Member",
+      "deleteDescription": "This action cannot be undone. The member will lose access to this organization.",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "changeRole": "Change Role",
+      "empty": "No members yet. Invite members to get started!",
+      "noResults": "No members found",
+      "loading": "Loading members...",
+      "roles": {
+        "OWNER": "Owner",
+        "ADMIN": "Admin",
+        "MEMBER": "Member"
+      },
+      "statuses": {
+        "PENDING": "Pending",
+        "ACCEPTED": "Accepted",
+        "REJECTED": "Rejected"
+      }
+    },
+    "invitations": {
+      "title": "Organization Invitations",
+      "subtitle": "You have been invited to join organizations",
+      "accept": "Accept",
+      "reject": "Reject",
+      "acceptSuccess": "Invitation accepted",
+      "acceptError": "Failed to accept invitation",
+      "rejectSuccess": "Invitation rejected",
+      "rejectError": "Failed to reject invitation",
+      "empty": "No pending invitations",
+      "loading": "Loading invitations...",
+      "invitedBy": "Invited by",
+      "invitedOn": "Invited on"
+    },
+    "projects": {
+      "title": "Projects",
+      "subtitle": "Manage your projects",
+      "create": "Create Project",
+      "search": "Search projects by name...",
+      "empty": "No projects yet. Create one to get started!",
+      "noResults": "No projects found matching your search",
+      "gridView": "Grid view",
+      "listView": "List view",
+      "members": "member|members",
+      "sprints": "sprint|sprints",
+      "stories": "story|stories",
+      "manageSprints": "Manage Sprints",
+      "viewProject": "View Project",
+      "editProject": "Edit Project",
+      "deleteProject": "Delete Project",
+      "addMember": "Add Member"
+    },
+    "sprints": {
+      "title": "Sprints",
+      "subtitle": "Manage project sprints",
+      "create": "Create Sprint",
+      "createSuccess": "Sprint created successfully",
+      "createError": "Failed to create sprint",
+      "updateSuccess": "Sprint updated successfully",
+      "updateError": "Failed to update sprint",
+      "deleteSuccess": "Sprint deleted successfully",
+      "deleteError": "Failed to delete sprint",
+      "search": "Search sprints by name...",
+      "empty": "No sprints yet. Create one to get started!",
+      "noResults": "No sprints found matching your search",
+      "gridView": "Grid view",
+      "listView": "List view",
+      "name": "Sprint Name",
+      "namePlaceholder": "Enter sprint name (e.g., Sprint 1, Q1 2025)",
+      "goal": "Sprint Goal",
+      "goalPlaceholder": "What do you want to achieve in this sprint?",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "selectStartDate": "Select start date",
+      "selectEndDate": "Select end date",
+      "status": "Status",
+      "actions": "Actions",
+      "edit": "Edit Sprint",
+      "delete": "Delete Sprint",
+      "deleteConfirm": "Are you sure you want to delete this sprint?",
+      "deleteTitle": "Delete Sprint",
+      "deleteDescription": "This action cannot be undone. All stories in this sprint will be moved to the backlog.",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "save": "Save",
+      "creating": "Creating...",
+      "updating": "Updating...",
+      "statuses": {
+        "PLANNING": "Planning",
+        "ACTIVE": "Active",
+        "COMPLETED": "Completed",
+        "CANCELLED": "Cancelled"
+      },
+      "stats": {
+        "stories": "Stories",
+        "todo": "To Do",
+        "inProgress": "In Progress",
+        "done": "Done",
+        "duration": "Duration",
+        "daysLeft": "days left",
+        "daysOverdue": "days overdue",
+        "completed": "Completed"
+      },
+      "board": {
+        "title": "Sprint Board",
+        "backlog": "Backlog",
+        "todo": "To Do",
+        "inProgress": "In Progress",
+        "done": "Done",
+        "emptyColumn": "No stories in this column",
+        "clickToAdd": "Click to add a story",
+        "dragDrop": "Drag and drop stories to update their status"
+      }
+    },
+    "stories": {
+      "title": "User Stories",
+      "subtitle": "Manage stories for your sprints",
+      "create": "Create Story",
+      "createSuccess": "Story created successfully",
+      "createError": "Failed to create story",
+      "updateSuccess": "Story updated successfully",
+      "updateError": "Failed to update story",
+      "deleteSuccess": "Story deleted successfully",
+      "deleteError": "Failed to delete story",
+      "search": "Search stories by title or description...",
+      "empty": "No stories yet. Create one to get started!",
+      "noResults": "No stories found matching your search",
+      "gridView": "Grid view",
+      "listView": "List view",
+      "boardView": "Board view",
+      "backlog": "Backlog",
+      "title_field": "Story Title",
+      "titlePlaceholder": "Enter story title (e.g., User can login with email)",
+      "description": "Description",
+      "descriptionPlaceholder": "Describe the story in detail...",
+      "points": "Story Points",
+      "pointsPlaceholder": "Estimate complexity (1-100)",
+      "priority": "Priority",
+      "status": "Status",
+      "assignees": "Assignees",
+      "assigneesPlaceholder": "Select team members to assign",
+      "sprint": "Sprint",
+      "sprintPlaceholder": "Select a sprint (optional)",
+      "dueDate": "Due Date",
+      "labels": "Labels",
+      "labelsPlaceholder": "Add labels (comma-separated)",
+      "actions": "Actions",
+      "edit": "Edit Story",
+      "delete": "Delete Story",
+      "deleteConfirm": "Are you sure you want to delete this story?",
+      "deleteTitle": "Delete Story",
+      "deleteDescription": "This action cannot be undone. All comments and history will be deleted.",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "save": "Save",
+      "creating": "Creating...",
+      "updating": "Updating...",
+      "priorities": {
+        "LOW": "Low",
+        "MEDIUM": "Medium",
+        "HIGH": "High"
+      },
+      "statuses": {
+        "TODO": "To Do",
+        "IN_PROGRESS": "In Progress",
+        "DONE": "Done"
+      },
+      "board": {
+        "emptyColumn": "No stories in this column",
+        "clickToAdd": "Click to add a story",
+        "dragDrop": "Drag and drop stories to update their status",
+        "atLeastOneOpen": "At least one column must remain open"
+      },
+      "filters": {
+        "all": "All Stories",
+        "byStatus": "Filter by Status",
+        "byPriority": "Filter by Priority",
+        "bySprint": "Filter by Sprint",
+        "byAssignee": "Filter by Assignee",
+        "clearFilters": "Clear Filters"
+      },
+      "details": {
+        "title": "Story Details",
+        "comments": "Comments",
+        "history": "History",
+        "addComment": "Add a comment...",
+        "noComments": "No comments yet",
+        "noHistory": "No history yet",
+        "commentTooLong": "Comment is too long",
+        "attachmentLimit": "Attachment limit reached"
+      },
+      "moveToSprint": "Move to Sprint",
+       "moveToBacklog": "Move to Backlog",
+       "addToSprint": "Add to Sprint",
+       "removeFromSprint": "Remove from Sprint",
+       "share": "Share",
+        "shareSuccess": "Link copied to clipboard",
+        "notify": "Notify",
+        "comingSoon": "Coming soon"
+      }
+  },
+  "Profile": {
+
+    "title": "Edit Profile",
+    "loading": "Loading...",
+    "description": "Update your profile information",
+    "name": "Name",
+    "email": "Email",
+    "updateButton": "Update Name",
+    "updating": "Updating...",
+    "back": "Back",
+    "errors": {
+      "nameEmpty": "Name cannot be empty",
+      "updateFailed": "Failed to update name",
+      "loadFailed": "Failed to load profile"
+    },
+    "success": "Name updated successfully"
+  },
+  "Footer": {
+    "newsletter": {
+      "title": "Stay Updated",
+      "description": "Get the latest updates on sprint tracking tips, features, and best practices.",
+      "placeholder": "Enter your email",
+      "button": "Subscribe",
+      "privacy": "We respect your privacy. Unsubscribe at any time."
+    },
+    "company": {
+      "name": "meetup",
+      "description": "The minimalistic sprint tracking tool designed for maximum productivity. Built with Next.js, TypeScript, and a focus on reducing clicks. Created by Harshax leocodeio, a Full Stack Developer specializing in developer tools.",
+      "contact": {
+        "email": "hello@leocode.tech",
+        "phone": "+1 (555) 123-4567",
+        "location": "San Francisco, CA"
+      }
+    },
+    "links": {
+      "product": {
+        "title": "Product",
+        "items": [
+          "Features",
+          "Pricing",
+          "Documentation",
+          "API Reference",
+          "Changelog"
+        ]
+      },
+      "company": {
+        "title": "Company",
+        "items": [
+          "About",
+          "Blog",
+          "Careers",
+          "Press",
+          "Partners"
+        ]
+      },
+      "support": {
+        "title": "Support",
+        "items": [
+          "Help Center",
+          "Community",
+          "Contact Us",
+          "Status",
+          "System Status"
+        ]
+      },
+      "legal": {
+        "title": "Legal",
+        "items": [
+          "Privacy Policy",
+          "Terms of Service",
+          "Cookie Policy",
+          "GDPR",
+          "Security"
+        ]
+      }
+    },
+    "bottom": {
+      "copyright": "© 2025 meetup by Harshax leocodeio. All rights reserved.",
+      "madeWith": "Made with ❤️ by Harshax"
+    },
+    "social": {
+      "github": "GitHub",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn"
+    }
+  }
+}

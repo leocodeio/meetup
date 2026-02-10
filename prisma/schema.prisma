@@ -1,0 +1,397 @@
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+////////////////////
+// USER & AUTH
+////////////////////
+
+model User {
+  id               String   @id @default(cuid()) @map("_id")
+  name             String
+  email            String   @unique
+  emailVerified    Boolean  @default(false)
+  image            String?
+  role             UserRole @default(USER)
+  phone            String?
+  phoneVerified    Boolean  @default(false)
+  profileCompleted Boolean  @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  sessions      Session[]
+  accounts      Account[]
+  subscriptions Subscription[]
+  payments      Payment[]
+
+  ownedOrganizations  Organization[]
+  organizationMembers OrganizationMember[]
+  projectMembers      ProjectMember[]
+  storyAssignments    StoryAssignee[]
+  comments            Comment[]
+  storyHistoryChanges StoryHistory[]       @relation("StoryHistoryUser")
+
+  subscriptionId String?
+
+  @@map("users")
+}
+
+model Session {
+  id        String   @id @default(cuid()) @map("_id")
+  token     String   @unique
+  expiresAt DateTime
+  ipAddress String?
+  userAgent String?
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@map("sessions")
+}
+
+model Account {
+  id         String @id @default(cuid()) @map("_id")
+  providerId String
+  accountId  String
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  accessToken           String?
+  refreshToken          String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  idToken String?
+
+  @@index([userId])
+  @@map("accounts")
+}
+
+model Verification {
+  id         String   @id @default(cuid()) @map("_id")
+  identifier String
+  value      String
+  expiresAt  DateTime
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([identifier])
+  @@map("verifications")
+}
+
+////////////////////
+// BILLING
+////////////////////
+
+model Subscription {
+  id       String             @id @default(cuid()) @map("_id")
+  status   SubscriptionStatus
+  planId   String?
+  planSlug String?
+
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id])
+
+  startDate  DateTime  @default(now())
+  endDate    DateTime?
+  canceledAt DateTime?
+
+  polarCheckoutId     String? @unique
+  polarSubscriptionId String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("subscriptions")
+}
+
+model Payment {
+  id           String        @id @default(cuid()) @map("_id")
+  amount       Float
+  currency     String
+  status       PaymentStatus
+  polarOrderId String
+  checkoutId   String?
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@map("payments")
+}
+
+////////////////////
+// ORGANIZATION
+////////////////////
+
+model Organization {
+  id          String  @id @default(cuid()) @map("_id")
+  name        String
+  slug        String  @unique
+  description String?
+  image       String?
+
+  ownerId String
+  owner   User   @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+
+  members  OrganizationMember[]
+  projects Project[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([ownerId])
+  @@map("organizations")
+}
+
+model OrganizationMember {
+  id     String                 @id @default(cuid()) @map("_id")
+  role   OrganizationMemberRole @default(MEMBER)
+  status OrganizationMemberStatus @default(PENDING)
+  active Boolean                @default(true)
+
+  orgId  String
+  userId String
+
+  organization Organization @relation(fields: [orgId], references: [id])
+  user         User         @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([orgId, userId])
+  @@map("organization_members")
+}
+
+////////////////////
+// PROJECT / SPRINT / STORY
+////////////////////
+
+model Project {
+  id           String  @id @default(cuid()) @map("_id")
+  name         String
+  description  String?
+  storyCounter Int     @default(0)
+
+  orgId        String
+  organization Organization @relation(fields: [orgId], references: [id])
+
+  members ProjectMember[]
+  sprints Sprint[]
+  stories Story[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([orgId])
+  @@map("projects")
+}
+
+model ProjectMember {
+  id     String               @id @default(cuid()) @map("_id")
+  role   ProjectMemberRole    @default(MEMBER)
+  active Boolean              @default(true)
+
+  projectId String
+  userId    String
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  user    User    @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([projectId, userId])
+  @@map("project_members")
+}
+
+model Sprint {
+  id     String       @id @default(cuid()) @map("_id")
+  name   String
+  goal   String?
+  status SprintStatus @default(PLANNING)
+
+  startDate DateTime
+  endDate   DateTime
+
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  stories Story[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([projectId])
+  @@map("sprints")
+}
+
+model Story {
+  id          String      @id @default(cuid()) @map("_id")
+  title       String
+  description String?
+  attachments Json?
+  points      Int?
+  priority    Priority    @default(MEDIUM)
+  status      StoryStatus @default(TODO)
+  labels      String[]
+  slug        String?
+  archived    Boolean     @default(false)
+
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  sprintId String?
+  sprint   Sprint? @relation(fields: [sprintId], references: [id])
+
+  dueDate  DateTime?
+  position Int       @default(0)
+
+  assignees StoryAssignee[]
+  comments  Comment[]
+  history   StoryHistory[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([projectId, slug])
+  @@index([projectId])
+  @@index([sprintId])
+  @@index([projectId, status])
+  @@index([projectId, priority])
+  @@index([projectId, sprintId, status])
+  @@map("stories")
+}
+
+model StoryAssignee {
+  id      String @id @default(cuid()) @map("_id")
+  userId  String
+  storyId String
+
+  user  User  @relation(fields: [userId], references: [id])
+  story Story @relation(fields: [storyId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@unique([userId, storyId])
+  @@map("story_assignees")
+}
+
+model Comment {
+  id          String @id @default(cuid()) @map("_id")
+  content     String
+  attachments Json?
+
+  userId  String
+  storyId String
+
+  user  User  @relation(fields: [userId], references: [id])
+  story Story @relation(fields: [storyId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([storyId])
+  @@map("comments")
+}
+
+model StoryHistory {
+  id       String @id @default(cuid()) @map("_id")
+  field    String
+  oldValue Json?
+  newValue Json?
+
+  storyId String
+  story   Story  @relation(fields: [storyId], references: [id], onDelete: Cascade)
+
+  changedBy     String
+  changedByUser User   @relation("StoryHistoryUser", fields: [changedBy], references: [id])
+
+  createdAt DateTime @default(now())
+
+  @@index([storyId])
+  @@map("story_history")
+}
+
+////////////////////
+// ENUMS
+////////////////////
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum OrganizationMemberRole {
+  OWNER
+  ADMIN
+  MEMBER
+}
+
+enum OrganizationMemberStatus{
+  PENDING
+  ACCEPTED
+  REJECTED
+}
+
+enum ProjectMemberRole {
+  OWNER
+  ADMIN
+  MEMBER
+  VIEWER
+}
+
+enum SprintStatus {
+  PLANNING
+  ACTIVE
+  COMPLETED
+  CANCELLED
+}
+
+enum StoryStatus {
+  TODO
+  IN_PROGRESS
+  DONE
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELED
+  EXPIRED
+  PAST_DUE
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}

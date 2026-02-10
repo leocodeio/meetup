@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 221 83% 53%;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 217 91% 60%;
+  }
+
+  /* Green theme */
+  [data-color="green"] {
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 98%;
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 98%;
+    --ring: 142 76% 36%;
+  }
+
+  .dark[data-color="green"] {
+    --primary: 142 69% 58%;
+    --primary-foreground: 240 5.9% 10%;
+    --accent: 142 69% 58%;
+    --accent-foreground: 240 5.9% 10%;
+    --ring: 142 69% 58%;
+  }
+
+  /* Red theme */
+  [data-color="red"] {
+    --primary: 0 84% 60%;
+    --primary-foreground: 0 0% 98%;
+    --accent: 0 84% 60%;
+    --accent-foreground: 0 0% 98%;
+    --ring: 0 84% 60%;
+  }
+
+  .dark[data-color="red"] {
+    --primary: 0 72% 51%;
+    --primary-foreground: 0 0% 98%;
+    --accent: 0 72% 51%;
+    --accent-foreground: 0 0% 98%;
+    --ring: 0 72% 51%;
+  }
+
+  /* Purple theme */
+  [data-color="purple"] {
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 98%;
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 98%;
+    --ring: 262 83% 58%;
+  }
+
+  .dark[data-color="purple"] {
+    --primary: 263 70% 50%;
+    --primary-foreground: 0 0% 98%;
+    --accent: 263 70% 50%;
+    --accent-foreground: 0 0% 98%;
+    --ring: 263 70% 50%;
+  }
+
+  /* Orange theme */
+  [data-color="orange"] {
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 98%;
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 98%;
+    --ring: 25 95% 53%;
+  }
+
+  .dark[data-color="orange"] {
+    --primary: 24 100% 50%;
+    --primary-foreground: 0 0% 98%;
+    --accent: 24 100% 50%;
+    --accent-foreground: 0 0% 98%;
+    --ring: 24 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.animate-in {
+  animation: animate-in 0.5s ease-out;
+}
+
+@keyframes animate-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Rich text editor styles */
+@layer components {
+  .prose-content img {
+    @apply max-w-full h-auto rounded-lg border border-border/40 shadow-sm my-2;
+  }
+
+  .prose-content a {
+    @apply text-primary hover:underline;
+  }
+
+  .prose-content strong {
+    @apply font-bold text-foreground;
+  }
+
+  .prose-content em {
+    @apply italic text-foreground/90;
+  }
+
+  .prose-content code {
+    @apply bg-muted px-2 py-1 rounded text-sm font-mono text-foreground;
+  }
+
+  .prose-content pre {
+    @apply bg-muted p-3 rounded-lg overflow-x-auto my-2;
+  }
+
+  .prose-content ul,
+  .prose-content ol {
+    @apply ml-4 my-2;
+  }
+
+  .prose-content li {
+    @apply mb-1;
+  }
+
+  .prose-content blockquote {
+    @apply border-l-4 border-primary pl-4 italic text-muted-foreground my-2;
+  }
+
+  .prose-content h1,
+  .prose-content h2,
+  .prose-content h3 {
+    @apply font-bold text-foreground my-2;
+  }
+
+  .prose-content h1 {
+    @apply text-lg;
+  }
+
+  .prose-content h2 {
+    @apply text-base;
+  }
+
+  .prose-content h3 {
+    @apply text-sm;
+  }
+}

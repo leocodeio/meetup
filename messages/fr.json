@@ -1,0 +1,528 @@
+{
+  "Navigation": {
+    "features": "Fonctionnalités",
+    "pricing": "Tarifs",
+    "testimonials": "Témoignages",
+    "faq": "FAQ",
+    "signIn": "Se connecter",
+    "getStarted": "Commencer"
+  },
+  "Hero": {
+    "title": "Suivez les Sprints en Secondes",
+    "subtitle": "L'outil de sprint minimaliste qui maximise votre productivité. Suivez les progrès avec un minimum de clics.",
+    "cta": "Commencer",
+    "learnMore": "En savoir plus",
+    "badge": "Approuvé par 5,000+ équipes dans le monde"
+  },
+  "Features": {
+    "title": "Tout ce dont vous avez besoin",
+    "subtitle": "Suivi de sprint rationalisé avec un minimum de friction",
+    "badge": "Fonctionnalités",
+    "quickTracking": {
+      "title": "Suivi Rapide",
+      "description": "Enregistrez les progrès en un seul clic",
+      "badge": "Vitesse"
+    },
+    "minimalUI": {
+      "title": "Interface Minimaliste",
+      "description": "Interface propre axée sur l'essentiel",
+      "badge": "Design"
+    },
+    "realTimeProgress": {
+      "title": "Progrès en Temps Réel",
+      "description": "Voyez les progrès de votre équipe instantanément",
+      "badge": "Visibilité"
+    },
+    "smartReminders": {
+      "title": "Rappels Intelligents",
+      "description": "Rappels automatiques de sprint et mises à jour",
+      "badge": "Automatisation"
+    },
+    "teamSync": {
+      "title": "Synchronisation d'Équipe",
+      "description": "Collaboration transparente avec votre équipe",
+      "badge": "Collaboration"
+    },
+    "analytics": {
+      "title": "Analytiques Simples",
+      "description": "Suivez la vélocité de sprint et obtenez des informations",
+      "badge": "Perspectives"
+    },
+    "clickMinimization": {
+      "badge": "🚀 Fonctionnalité Principale",
+      "title": "Minimum de Clics",
+      "description": "Notre philosophie est simple : moins de clics, plus de résultats. Nous avons conçu chaque interaction pour être aussi efficace que possible, afin que vous puissiez vous concentrer sur la construction, pas sur le clic.",
+      "features": {
+        "oneClickUpdates": "Mises à jour en un clic",
+        "keyboardShortcuts": "Raccourcis clavier",
+        "quickActions": "Menu d'actions rapides"
+      }
+    }
+  },
+  "Testimonials": {
+    "title": "Ce que disent les Équipes",
+    "subtitle": "Découvrez comment les équipes ont transformé leur suivi de sprint",
+    "badge": "Témoignages",
+    "heading": "Aimé par les équipes agiles",
+    "headingHighlight": "partout",
+    "description": "Découvrez ce que les équipes disent de meetup",
+    "trustIndicator": "Approuvé par les équipes agiles leaders dans le monde entier",
+    "stats": {
+      "activeDevelopers": "Équipes Actives",
+      "appsBuilt": "Sprints Complétés",
+      "countries": "Pays",
+      "uptime": "Disponibilité"
+    },
+    "items": [
+      {
+        "name": "Sarah Johnson",
+        "role": "Product Manager chez TechCorp",
+        "company": "TechCorp",
+        "content": "meetup a révolutionné notre façon de suivre les sprints. Ce qui prenait 30 minutes ne prend plus que 5 minutes. La vélocité de notre équipe n'a jamais été aussi élevée.",
+        "rating": 5
+      },
+      {
+        "name": "Michael Chen",
+        "role": "Tech Lead chez StartupXYZ",
+        "company": "StartupXYZ",
+        "content": "L'interface minimaliste est exactement ce dont nous avions besoin. Pas d'encombrement, juste de la pure productivité. Notre planification de sprint est deux fois plus rapide maintenant.",
+        "rating": 5
+      },
+      {
+        "name": "Emily Rodriguez",
+        "role": "Engineering Manager",
+        "company": "InnovateLabs",
+        "content": "Enfin, un outil de sprint qui ne gêne pas. Nos développeurs apprécient maintenant de mettre à jour leurs progrès. Un changement radical pour nos standups quotidiens.",
+        "rating": 5
+      },
+      {
+        "name": "David Kim",
+        "role": "Scrum Master",
+        "company": "DevStudio",
+        "content": "Nous avons essayé tous les outils de sprint. meetup est le seul qui comprend vraiment le minimalisme. Les mises à jour en un clic sont vitales.",
+        "rating": 5
+      },
+      {
+        "name": "Lisa Thompson",
+        "role": "CTO chez ScaleUp Inc",
+        "company": "ScaleUp Inc",
+        "content": "Notre vélocité de sprint a augmenté de 35% après avoir adopté meetup. L'interface propre et les fonctionnalités intelligentes rendent le suivi sans effort.",
+        "rating": 5
+      },
+      {
+        "name": "Alex Rivera",
+        "role": "Senior Developer",
+        "company": "CodeCraft",
+        "content": "Les raccourcis clavier et les actions rapides sont brillants. Je peux mettre à jour l'état complet de mon sprint en moins d'une minute. C'est ainsi que les outils de sprint devraient être.",
+        "rating": 5
+      }
+    ]
+  },
+  "Pricing": {
+    "title": "Tarification Simple",
+    "subtitle": "Choisissez le plan qui convient à votre équipe",
+    "badge": "Tarifs",
+    "heading": "Choisissez le plan parfait pour",
+    "headingHighlight": "votre équipe",
+    "description": "Commencez gratuitement et évoluez au fur et à mesure que votre équipe grandit. Tous les plans incluent les fonctionnalités principales de suivi de sprint.",
+    "monthly": "Mensuel",
+    "yearly": "Annuel",
+    "savePercent": "Économisez 20%",
+    "mostPopular": "Le Plus Populaire",
+    "year": "an",
+    "month": "mois",
+    "forever": "toujours",
+    "limitations": "Limitations:",
+    "faqTitle": "Questions Fréquemment Posées",
+    "enterpriseCta": {
+      "title": "Besoin d'une Solution Personnalisée?",
+      "description": "Contactez notre équipe commerciale pour obtenir une tarification personnalisée et des fonctionnalités d'entreprise adaptées aux besoins de votre organisation.",
+      "button": "Contacter l'Équipe Commerciale"
+    },
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "description": "Parfait pour les développeurs individuels et les petites équipes",
+        "cta": "Commencer Gratuitement",
+        "features": {
+          "projects": "Jusqu'à 3 sprints",
+          "auth": "Authentification de base",
+          "support": "Support communautaire",
+          "storage": "1Go de stockage",
+          "analytics": "Analytiques de base",
+          "email": "Support par email"
+        },
+        "limitations": {
+          "api": "Appels API limités",
+          "domains": "Pas de domaines personnalisés",
+          "templates": "Modèles de base uniquement"
+        }
+      },
+      "pro": {
+        "name": "Pro",
+        "description": "Idéal pour les équipes en croissance et les flux de travail de production",
+        "cta": "Démarrer l'Essai Pro",
+        "features": {
+          "projects": "Sprints illimités",
+          "auth": "Authentification avancée",
+          "support": "Support prioritaire",
+          "storage": "100Go de stockage",
+          "analytics": "Analytiques avancées",
+          "domains": "Domaines personnalisés",
+          "apiLimits": "Limites API: 100k/mois",
+          "collaboration": "Collaboration d'équipe",
+          "integrations": "Intégrations personnalisées"
+        }
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "Pour les grandes organisations avec des exigences avancées",
+        "cta": "Contacter les Ventes",
+        "features": {
+          "everything": "Tout dans Pro",
+          "apiUnlimited": "Appels API illimités",
+          "dedicatedSupport": "Support dédié",
+          "unlimitedStorage": "Stockage illimité",
+          "advancedSecurity": "Sécurité avancée",
+          "sla": "Garantie SLA",
+          "customDeployment": "Déploiement personnalisé",
+          "whiteLabel": "Options en marque blanche",
+          "advancedIntegrations": "Intégrations avancées",
+          "phoneSupport": "Support téléphonique 24/7"
+        }
+      }
+    },
+    "faqs": {
+      "changePlan": {
+        "question": "Puis-je changer de plan à tout moment?",
+        "answer": "Oui, vous pouvez mettre à niveau ou rétrograder votre plan à tout moment. Les modifications prennent effet immédiatement et nous calculons au prorata tous les frais."
+      },
+      "freeTrial": {
+        "question": "Y a-t-il un essai gratuit?",
+        "answer": "Oui! Nous offrons un essai gratuit de 14 jours pour tous les plans payants. Aucune carte de crédit requise pour commencer."
+      },
+      "paymentMethods": {
+        "question": "Quels modes de paiement acceptez-vous?",
+        "answer": "Nous acceptons toutes les principales cartes de crédit, PayPal et les virements bancaires pour les clients Enterprise."
+      },
+      "refunds": {
+        "question": "Offrez-vous des remboursements?",
+        "answer": "Oui, nous offrons une garantie de remboursement de 30 jours. Si vous n'êtes pas satisfait, nous rembourserons votre paiement."
+      }
+    }
+  },
+  "FAQ": {
+    "badge": "FAQ",
+    "title": "Questions",
+    "titleHighlight": "Fréquentes",
+    "subtitle": "Tout ce que vous devez savoir sur meetup. Vous ne trouvez pas ce que vous cherchez ? Contactez notre équipe de support.",
+    "questions": {
+      "q1": {
+        "question": "Qu'est-ce que meetup et comment ça marche ?",
+        "answer": "meetup est un outil de suivi de sprint minimaliste conçu pour maximiser la productivité de l'équipe. Avec notre philosophie de minimum de clics, vous pouvez suivre les progrès, gérer les sprints et collaborer avec votre équipe en secondes, pas en minutes."
+      },
+      "q2": {
+        "question": "Comment fonctionne la philosophie du 'minimum de clics'?",
+        "answer": "Nous avons conçu chaque interaction pour nécessiter le moins de clics possible. Mises à jour en un clic, raccourcis clavier, valeurs par défaut intelligentes et une interface intuitive signifient que vous passez moins de temps à gérer les tâches et plus de temps à construire des produits."
+      },
+      "q3": {
+        "question": "Puis-je utiliser meetup pour les méthodologies agiles?",
+        "answer": "Absolument ! meetup est construit spécifiquement pour les équipes agiles. Que vous utilisiez Scrum, Kanban ou une méthodologie personnalisée, notre suivi de sprint flexible s'adapte à votre flux de travail."
+      },
+      "q4": {
+        "question": "Comment fonctionne la collaboration en équipe?",
+        "answer": "meetup permet la collaboration en temps réel avec votre équipe. Voyez les mises à jour instantanément, partagez les progrès en un clic et gardez tout le monde aligné sans réunions ou rapports d'état inutiles."
+      },
+      "q5": {
+        "question": "meetup est-il sécurisé pour gérer des données sensibles du projet?",
+        "answer": "Oui, la sécurité est une priorité absolue. meetup inclut des fonctionnalités de sécurité de niveau entreprise comme le stockage de données crypté, l'authentification sécurisée, la conformité RGPD et des audits de sécurité réguliers."
+      },
+      "q6": {
+        "question": "Puis-je intégrer meetup avec d'autres outils?",
+        "answer": "Oui ! Nous offrons des intégrations avec des outils populaires comme GitHub, Slack et plus. Notre API permet des intégrations personnalisées pour s'adapter parfaitement à votre flux de travail existant."
+      },
+      "q7": {
+        "question": "Quel type de support proposez-vous?",
+        "answer": "Nous offrons plusieurs canaux de support : forums communautaires, documentation détaillée, tutoriels vidéo et support par e-mail prioritaire pour les utilisateurs Pro. Les clients Enterprise bénéficient d'un support dédié."
+      },
+      "q8": {
+        "question": "Puis-je importer des données d'autres outils de sprint?",
+        "answer": "Oui ! meetup prend en charge l'importation depuis des outils de suivi de sprint populaires. Nous fournissons également des guides de migration pour vous aider à effectuer la transition en douceur."
+      },
+      "q9": {
+        "question": "Comment gérez-vous les analytiques de sprint?",
+        "answer": "meetup fournit des analytiques simples mais puissantes. Suivez la vélocité de sprint, la productivité de l'équipe, les taux de complétion et identifiez les goulots d'étranglement sans vous submerger avec des tableaux de bord complexes."
+      },
+      "q10": {
+        "question": "Quelle est votre politique de remboursement?",
+        "answer": "Nous offrons une garantie de remboursement de 30 jours pour tous les plans payants. Si vous n'êtes pas complètement satisfait de meetup, nous vous rembourserons, sans poser de questions."
+      }
+    },
+    "supportSection": {
+      "title": "Besoin de Plus d'Aide ?",
+      "subtitle": "Notre équipe de support est là pour vous aider à réussir avec meetup",
+      "options": {
+        "community": {
+          "title": "Support Communautaire",
+          "description": "Obtenez de l'aide de notre communauté active d'équipes",
+          "action": "Rejoindre Discord"
+        },
+        "docs": {
+          "title": "Documentation",
+          "description": "Guides complets et références API",
+          "action": "Voir la Documentation"
+        },
+        "enterprise": {
+          "title": "Support Enterprise",
+          "description": "Support dédié pour les grandes organisations",
+          "action": "Contacter les Ventes"
+        },
+        "help": {
+          "title": "Centre d'Aide",
+          "description": "Ressources en libre-service et dépannage",
+          "action": "Parcourir l'Aide"
+        }
+      }
+    },
+    "contactCta": {
+      "title": "Vous avez encore des questions ?",
+      "description": "Notre équipe de support amicale est prête à vous aider avec toutes vos questions sur meetup.",
+      "contactButton": "Contacter le Support",
+      "scheduleButton": "Planifier un Appel"
+    }
+  },
+  "Auth": {
+    "common": {
+      "or": "Ou",
+      "email": "E-mail",
+      "emailPlaceholder": "Entrez votre e-mail",
+      "password": "Mot de passe",
+      "passwordPlaceholder": "Entrez votre mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
+      "confirmPasswordPlaceholder": "Confirmez votre mot de passe",
+      "name": "Nom complet",
+      "namePlaceholder": "Entrez votre nom complet",
+      "profilePicture": "Photo de Profil",
+      "goHome": "Retour à l'accueil"
+    },
+    "login": {
+      "title": "Bienvenue",
+      "description": "Connectez-vous à votre compte pour continuer à suivre les sprints",
+      "google": "Continuer avec Google",
+      "submit": "Se connecter",
+      "noAccount": "Vous n'avez pas de compte ?",
+      "signUp": "S'inscrire"
+    },
+    "signup": {
+      "title": "Créer un compte",
+      "description": "Commencez à suivre les sprints avec un minimum de clics aujourd'hui",
+      "google": "Continuer avec Google",
+      "submit": "Créer un compte",
+      "hasAccount": "Vous avez déjà un compte ?",
+      "signIn": "Se connecter"
+    }
+  },
+  "Dashboard": {
+    "title": "Tableau de Bord",
+
+    "loading": "Chargement...",
+    "signOut": "Se déconnecter",
+    "welcome": {
+      "title": "Bienvenue de retour !",
+      "description": "Bonjour {name}, voici votre aperçu de sprint."
+    },
+    "profile": {
+      "title": "Profil",
+      "name": "Nom",
+      "email": "Adresse e-mail",
+      "edit": "Modifier le Profil"
+    },
+    "actions": {
+      "title": "Actions Rapides",
+      "createSprint": "Créer un Nouveau Sprint",
+      "viewSprints": "Voir les Sprints",
+      "settings": "Paramètres"
+    },
+    "stats": {
+      "title": "Statistiques",
+      "sprints": "Sprints Actifs",
+      "completed": "Sprints Complétés",
+      "velocity": "Vélocité de Sprint"
+    },
+    "projects": {
+      "title": "Projets",
+      "subtitle": "Gérez vos projets",
+      "create": "Créer un Projet",
+      "search": "Rechercher des projets par nom...",
+      "empty": "Aucun projet pour l'instant. Créez-en un pour commencer !",
+      "noResults": "Aucun projet ne correspond à votre recherche",
+      "gridView": "Vue en grille",
+      "listView": "Vue en liste",
+      "members": "membre|membres",
+      "sprints": "sprint|sprints",
+      "stories": "histoire|histoires",
+      "manageSprints": "Gérer les Sprints",
+      "viewProject": "Voir le Projet",
+      "editProject": "Modifier le Projet",
+      "deleteProject": "Supprimer le Projet",
+      "addMember": "Ajouter un Membre"
+    },
+    "stories": {
+      "details": {
+        "comments": "Commentaires",
+        "addComment": "Ajouter un commentaire...",
+        "noComments": "Pas encore de commentaires",
+        "commentTooLong": "Le commentaire est trop long",
+        "attachmentLimit": "Limite de pièces jointes atteinte"
+      },
+       "share": "Partager",
+        "shareSuccess": "Lien copié dans le presse-papiers",
+        "notify": "Notifier",
+        "comingSoon": "Bientôt disponible"
+      },
+    "sprints": {
+      "title": "Sprints",
+      "subtitle": "Gérez les sprints du projet",
+      "create": "Créer un Sprint",
+      "createSuccess": "Sprint créé avec succès",
+      "createError": "Échec de la création du sprint",
+      "updateSuccess": "Sprint mis à jour avec succès",
+      "updateError": "Échec de la mise à jour du sprint",
+      "deleteSuccess": "Sprint supprimé avec succès",
+      "deleteError": "Échec de la suppression du sprint",
+      "search": "Rechercher des sprints par nom...",
+      "empty": "Aucun sprint pour l'instant. Créez-en un pour commencer !",
+      "noResults": "Aucun sprint ne correspond à votre recherche",
+      "gridView": "Vue en grille",
+      "listView": "Vue en liste",
+      "name": "Nom du Sprint",
+
+      "namePlaceholder": "Entrez le nom du sprint (ex. Sprint 1, T1 2025)",
+      "goal": "Objectif du Sprint",
+      "goalPlaceholder": "Que voulez-vous accomplir dans ce sprint ?",
+      "startDate": "Date de début",
+      "endDate": "Date de fin",
+      "status": "Statut",
+      "actions": "Actions",
+      "edit": "Modifier le Sprint",
+      "delete": "Supprimer le Sprint",
+      "deleteConfirm": "Êtes-vous sûr de vouloir supprimer ce sprint ?",
+      "deleteTitle": "Supprimer le Sprint",
+      "deleteDescription": "Cette action est irréversible. Toutes les histoires de ce sprint seront déplacées vers le backlog.",
+      "cancel": "Annuler",
+      "confirm": "Confirmer",
+      "save": "Enregistrer",
+      "creating": "Création...",
+      "updating": "Mise à jour...",
+      "roles": {
+        "OWNER": "Propriétaire",
+        "ADMIN": "Admin",
+        "MEMBER": "Membre"
+      },
+      "statuses": {
+        "PLANNING": "Planification",
+        "ACTIVE": "Actif",
+        "COMPLETED": "Terminé",
+        "CANCELLED": "Annulé"
+      },
+      "stats": {
+        "stories": "Histoires",
+        "todo": "À faire",
+        "inProgress": "En cours",
+        "done": "Terminé",
+        "duration": "Durée",
+        "daysLeft": "jours restants",
+        "daysOverdue": "jours de retard",
+        "completed": "Terminé"
+      },
+      "board": {
+        "title": "Tableau de Sprint",
+        "backlog": "Backlog",
+        "todo": "À faire",
+        "inProgress": "En cours",
+        "done": "Terminé",
+        "emptyColumn": "Aucune histoire dans cette colonne",
+        "dragDrop": "Glissez-déposez des histoires pour mettre à jour leur statut"
+      }
+    }
+  },
+  "Profile": {
+    "title": "Modifier le Profil",
+    "loading": "Chargement...",
+    "description": "Mettez à jour vos informations de profil",
+    "name": "Nom",
+    "email": "Adresse e-mail",
+    "updateButton": "Mettre à jour le Nom",
+    "updating": "Mise à jour...",
+    "back": "Retour",
+    "errors": {
+      "nameEmpty": "Le nom ne peut pas être vide",
+      "updateFailed": "Erreur lors de la mise à jour du nom",
+      "loadFailed": "Erreur lors du chargement du profil"
+    },
+    "success": "Nom mis à jour avec succès"
+  },
+  "Footer": {
+    "newsletter": {
+      "title": "Restez Informé",
+      "description": "Recevez les dernières mises à jour sur les conseils de suivi de sprint, les fonctionnalités et les meilleures pratiques.",
+      "placeholder": "Entrez votre e-mail",
+      "button": "S'abonner",
+      "privacy": "Nous respectons votre vie privée. Désabonnez-vous à tout moment."
+    },
+    "company": {
+      "name": "meetup",
+      "description": "L'outil de suivi de sprint minimaliste conçu pour une productivité maximale. Construit avec Next.js, TypeScript et un focus sur la réduction des clics. Créé par Harshax leocodeio, un Développeur Full Stack spécialisé dans les outils pour développeurs.",
+      "contact": {
+        "email": "hello@leocode.tech",
+        "phone": "+1 (555) 123-4567",
+        "location": "San Francisco, CA"
+      }
+    },
+    "links": {
+      "product": {
+        "title": "Produit",
+        "items": [
+          "Fonctionnalités",
+          "Tarifs",
+          "Documentation",
+          "Référence API",
+          "Historique des Modifications"
+        ]
+      },
+      "company": {
+        "title": "Entreprise",
+        "items": ["À propos", "Blog", "Carrières", "Presse", "Partenaires"]
+      },
+      "support": {
+        "title": "Support",
+        "items": [
+          "Centre d'Aide",
+          "Communauté",
+          "Nous Contacter",
+          "Statut",
+          "Statut du Système"
+        ]
+      },
+      "legal": {
+        "title": "Légal",
+        "items": [
+          "Politique de Confidentialité",
+          "Conditions d'Utilisation",
+          "Politique des Cookies",
+          "RGPD",
+          "Sécurité"
+        ]
+      }
+    },
+    "bottom": {
+      "copyright": "© 2025 meetup par Harshax leocodeio. Tous droits réservés.",
+      "madeWith": "Fait avec ❤️ par Harshax"
+    },
+    "social": {
+      "github": "GitHub",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn"
+    }
+  }
+}
