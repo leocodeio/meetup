@@ -1,293 +1,365 @@
-# Contributing to Gitsprint
+# Contributing to Meetup
 
-Thank you for your interest in contributing to Gitsprint! This guide will help you set up the development environment and contribute effectively to the project.
+Thank you for your interest in contributing to Meetup! This document will help you set up the development environment and contribute effectively.
 
-## Table of Contents
+## 🎯 Quick Start
 
-- [Prerequisites](#prerequisites)
-- [Installation Guide](#installation-guide)
-- [Environment Setup](#environment-setup)
-- [Running the Application](#running-the-application)
-- [Development Workflow](#development-workflow)
-- [Code Style Guidelines](#code-style-guidelines)
-- [Database Management](#database-management)
-- [Submitting Contributions](#submitting-contributions)
+```bash
+# Clone the repository
+git clone https://github.com/leocodeio/meetup.git
+cd meetup
 
-## Prerequisites
+# Install dependencies
+bun install
 
-Before you begin, ensure you have the following installed on your system:
+# Set up MongoDB Replica Set (REQUIRED)
+# See "MongoDB Replica Set Setup" below
 
-- **Bun** (JavaScript runtime and package manager)
-- **Node.js 18+** (for compatibility)
-- **MongoDB** (local database)
-- **Git** (for version control)
-- **OpenCode** (recommended for development assistance)
+# Configure environment
+cp .env.example .env
+# Edit .env with your credentials
 
-## Installation Guide
+# Generate Prisma client
+npx prisma generate
 
-### Step 1: Install Bun
+# Push schema to database
+npx prisma db push
 
-Bun is the primary package manager for this project.
+# Start development server
+bun run dev
+```
 
-#### On Linux/macOS:
+Visit `http://localhost:3000` to see your Meetup app!
+
+## 📋 Prerequisites
+
+| Tool | Version | Required |
+|------|---------|----------|
+| **Bun.js** | Latest | ✅ Yes |
+| **MongoDB** | 7.0+ | ✅ Yes (Replica Set) |
+| **Node.js** | 18+ | ✅ Via Bun |
+| **Git** | Latest | ✅ Yes |
+
+### Installing Bun
+
 ```bash
 curl -fsSL https://bun.sh/install | bash
 ```
 
-#### On Windows:
-```powershell
-powershell -c "irm bun.sh/install.ps1 | iex"
-```
+### Installing MongoDB
 
-#### Verify Installation:
+**macOS (Homebrew):**
 ```bash
-bun --version
+brew install mongodb/brew/mongodb-community@7.0
+brew services start mongodb/brew/mongodb-community@7.0
 ```
 
-### Step 2: Install MongoDB
-
-#### On Linux (Debian/Ubuntu/Kali):
+**Ubuntu/Debian:**
 ```bash
-sudo apt update
-sudo apt install mongodb
-sudo systemctl start mongodb
-sudo systemctl enable mongodb
+curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
+  gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
+echo "deb [ signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/jammy/mongodb-org/7.0 multiverse" | \
+  sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org
 ```
 
-#### On macOS:
-```bash
-brew install mongodb/brew/mongodb-community
-brew services start mongodb/brew/mongodb-community
-```
+**Windows:**
+Download from [MongoDB Community Server](https://www.mongodb.com/try/download/community)
 
-#### On Windows:
-Download from [mongodb.com](https://www.mongodb.com/try/download/community) and follow the installation wizard.
+## 🗄️ MongoDB Replica Set Setup
 
-#### Verify Installation:
-```bash
-mongosh --version
-```
+⚠️ **CRITICAL**: Prisma with Better Auth requires MongoDB replica set. This is NOT optional.
 
-### Step 3: Clone the Repository
+### Option 1: Start MongoDB with Replica Set (Recommended)
 
 ```bash
-git clone https://github.com/leocodeio/meetup.git
-cd meetup
+# Stop any running MongoDB instance
+sudo systemctl stop mongod  # Linux
+brew services stop mongodb-community  # macOS
+
+# Create data and log directories
+mkdir -p ~/mongodb/data ~/mongodb/log
+
+# Start MongoDB with replica set
+mongod --replSet rs0 \
+  --dbpath ~/mongodb/data \
+  --logpath ~/mongodb/log/mongod.log \
+  --port 27017 \
+  --fork
+
+# Initialize the replica set
+mongo --eval "rs.initiate({_id:'rs0',members:[{_id:0,host:'localhost:27017'}]})"
 ```
 
-### Step 4: Install Dependencies
+### Option 2: Use MongoDB Atlas (Cloud)
+
+1. Create free account at [MongoDB Atlas](https://www.mongodb.com/atlas/database)
+2. Create a free cluster (M0 tier)
+3. Create database user with read/write permissions
+4. Add your IP to IP access list (0.0.0.0/0 for development)
+5. Get connection string:
+   ```
+   mongodb+srv://<username>:<password>@<cluster>.mongodb.net/meetup?retryWrites=true&w=majority
+   ```
+
+### Option 3: Docker (Quickest)
 
 ```bash
-bun install
+# Start MongoDB with replica set
+docker run -d \
+  --name mongodb \
+  -p 27017:27017 \
+  -v mongodb_data:/data/db \
+  mongo:7.0 \
+  --replSet rs0
+
+# Initialize replica set
+docker exec mongodb mongosh --eval "rs.initiate({_id:'rs0',members:[{_id:0,host:'localhost:27017'}]})"
 ```
 
-This will install all project dependencies and generate the Prisma client.
-
-## Environment Setup
-
-### Step 1: Copy Environment File
+### Verify Replica Set
 
 ```bash
-cp .env.example .env
+mongo --eval "rs.status()"
 ```
 
-### Step 2: Configure Environment Variables
+Should show `"ok" : 1` and `"stateStr" : "PRIMARY"`
 
-Edit the `.env` file and set the following variables:
+## 🔐 Environment Variables
+
+Create a `.env` file in the root directory:
 
 ```env
 # Database
-DATABASE_URL="mongodb://localhost:27017/meetup"
+DATABASE_URL=mongodb://127.0.0.1:27017/meetup
 
-# Add other required environment variables as documented in .env.example
+# Authentication (REQUIRED for sign-in)
+BETTER_AUTH_SECRET=your-32-character-secret-key
+BETTER_AUTH_GOOGLE_ID=your-google-client-id
+BETTER_AUTH_GOOGLE_SECRET=your-google-client-secret
+NEXT_PUBLIC_BETTER_AUTH_URL=http://localhost:3000
+
+# AI Transcription
+AI_PROVIDER=mistral
+AI_MODEL=ministral-3b-2512
+MISTRAL_API_KEY=your-mistral-api-key
+
+# Storage (REQUIRED for uploads)
+UPLOADTHING_TOKEN=your-uploadthing-token
+
+# Google Cloud Console Setup
+# 1. Go to https://console.cloud.google.com/
+# 2. Create new project
+# 3. Enable Google Meet API
+# 4. Create OAuth 2.0 credentials
+# 5. Add authorized redirect URIs:
+#    - http://localhost:3000/api/auth/callback/google
+#    - https://your-domain.com/api/auth/callback/google
 ```
 
-### Step 3: Verify Database Connection
+### Getting Google OAuth Credentials
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select existing
+3. Navigate to **APIs & Services** → **OAuth consent screen**
+4. Select **External** user type
+5. Fill required fields (app name, user support email)
+6. Add scopes: `email`, `profile`, `openid`
+7. Add test users (your email)
+8. Navigate to **Credentials** → **Create Credentials** → **OAuth client ID**
+9. Set application type to **Web application**
+10. Add authorized redirect URIs:
+    ```
+    http://localhost:3000/api/auth/callback/google
+    ```
+11. Copy Client ID and Client Secret to `.env`
+
+## 🚀 Development Workflow
+
+### Starting the Development Server
 
 ```bash
-bun run prisma:generate
-```
+# Start MongoDB replica set first (see above)
+mongod --replSet rs0 --dbpath ~/mongodb/data --logpath ~/mongodb/log/mongod.log --fork
 
-This ensures your Prisma client is generated with the correct database schema.
-
-## Running the Application
-
-### Development Server
-
-```bash
+# Start the Next.js dev server
 bun run dev
 ```
 
-The application will be available at `http://localhost:3000`
+The app will be available at:
+- **Local:** http://localhost:3000
+- **Network:** http://your-ip:3000
 
-### Build for Production
-
-```bash
-bun run build
-bun run start
-```
-
-### Database Management
-
-#### Generate Prisma Client
-```bash
-bun run prisma:generate
-```
-
-#### Create Database Migration
-```bash
-bun run prisma:migrate:dev --name <migration-name>
-```
-
-#### View Database
-```bash
-bun run prisma:studio
-```
-
-This opens Prisma Studio at `http://localhost:5555`
-
-## Development Workflow
-
-### Using OpenCode
-
-We recommend using OpenCode for enhanced development experience:
-
-1. Install OpenCode CLI
-2. Use OpenCode for code generation and assistance
-3. Follow OpenCode best practices for consistent coding
-
-### Making Changes
-
-1. **Create a feature branch:**
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-
-2. **Make your changes** following the code style guidelines
-
-3. **Test your changes** thoroughly
-
-4. **Run linting:**
-   ```bash
-   bun run lint
-   ```
-
-5. **Commit your changes:**
-   ```bash
-   git add .
-   git commit -m "feat: description of changes"
-   ```
-
-6. **Push to your branch:**
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-
-## Code Style Guidelines
-
-### TypeScript/JavaScript
-
-- Use TypeScript for all new code
-- Follow ESLint configuration
-- Use meaningful variable and function names
-- Add JSDoc comments for complex functions
-
-### Database Schema
-
-- Use Prisma schema for all database changes
-- Follow naming conventions (camelCase for fields)
-- Add proper relations and constraints
-
-### File Naming
-
-- Components: `PascalCase.tsx`
-- Utilities: `camelCase.ts`
-- Pages: `kebab-case.tsx`
-
-## Database Management
-
-### Local Development
-
-- Use local MongoDB instance
-- Reset database if needed:
-  ```bash
-  bun run prisma:migrate:reset
-  ```
-
-### Production Considerations
-
-- Use MongoDB Atlas or similar for production
-- Ensure proper environment variables are set
-- Run migrations before deployment
-
-## Testing Guidelines
-
-### Running Tests
+### Ngrok for Public Access (Optional)
 
 ```bash
-bun run test
+# Install ngrok
+brew install ngrok  # macOS
+# or download from https://ngrok.com/
+
+# Start tunnel
+ngrok http 3000
 ```
 
-### Writing Tests
+### Database Commands
 
-- Write unit tests for utilities
-- Integration tests for API endpoints
-- E2E tests for critical user flows
+```bash
+# Generate Prisma client after schema changes
+npx prisma generate
 
-## Submitting Contributions
+# Push schema changes to database
+npx prisma db push
 
-### Pull Request Process
+# Open Prisma Studio (database GUI)
+npx prisma studio
 
-1. **Fork the repository**
-
-2. **Create a feature branch** from `main`
-
-3. **Make your changes** and commit them with clear messages
-
-4. **Push to your fork**
-
-5. **Create a Pull Request:**
-   - Provide a clear title and description
-   - Reference any related issues
-   - Include screenshots for UI changes
-
-### Pull Request Checklist
-
-- [ ] Code follows project style guidelines
-- [ ] Tests pass locally
-- [ ] Linting passes
-- [ ] Database migrations included if schema changed
-- [ ] Environment variables documented
-- [ ] Documentation updated (if needed)
-
-### Commit Message Format
-
-```
-type(scope): description
-
-[optional body]
-
-[optional footer]
+# Reset database (WARNING: deletes all data)
+npx prisma db push --force-reset
 ```
 
-Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
+## 🏗️ Project Structure
 
-## Getting Help
+```
+meetup/
+├── src/
+│   ├── app/                    # Next.js App Router pages
+│   │   ├── [locale]/          # Localization routes
+│   │   │   ├── api/           # API routes
+│   │   │   ├── auth/          # Authentication pages
+│   │   │   └── dashboard/     # Dashboard pages
+│   │   └── api/               # Global API routes
+│   ├── components/             # React components
+│   │   ├── ui/               # shadcn/ui components
+│   │   └── ...               # Custom components
+│   ├── lib/                   # Utilities and helpers
+│   ├── server/               # Server-side code
+│   └── types/                 # TypeScript types
+├── prisma/                    # Database schema
+├── public/                    # Static assets
+├── messages/                  # i18n message files
+├── .env                      # Environment variables (create this)
+├── package.json
+├── bun.lockb
+└── README.md
+```
 
-If you encounter issues:
+## 🎨 Coding Standards
 
-1. Check existing issues in the repository
-2. Review the README.md
-3. Create a new issue with:
-   - Clear description of the problem
-   - Steps to reproduce
-   - Your environment (OS, Bun version, Node version)
-   - Error messages
+### Code Style
 
-## License
+- **TypeScript** for all new code
+- **ESLint** for linting
+- **Prettier** for formatting
+- **Tailwind CSS** for styling
 
-By contributing, you agree that your contributions will be licensed under the same license as the project.
+### Commit Messages
+
+Follow [Conventional Commits](https://www.conventionalcommits.org/):
+
+```
+feat: add new meeting recording feature
+fix: resolve MongoDB connection timeout
+docs: update contributing guide
+style: format code with Prettier
+refactor: restructure bot service
+test: add unit tests for transcription
+chore: update dependencies
+```
+
+### Branch Naming
+
+```
+feature/[feature-name]      # New features
+fix/[issue-description]      # Bug fixes
+docs/[documentation-topic]  # Documentation updates
+```
+
+## 🧪 Testing
+
+```bash
+# Run all tests
+bun test
+
+# Run specific test file
+bun test src/lib/utils.test.ts
+
+# Run with coverage
+bun test --coverage
+```
+
+## 📦 Building for Production
+
+```bash
+# Build the Next.js app
+npm run build
+
+# Start production server
+npm start
+```
+
+## 🐛 Common Issues
+
+### "Prisma needs to perform transactions, which requires your MongoDB server to be run as a replica set"
+
+**Solution:** MongoDB is not running as a replica set. Follow the "MongoDB Replica Set Setup" section above.
+
+### "Model does not exist in the database"
+
+**Solution:** Run Prisma commands:
+```bash
+npx prisma generate
+npx prisma db push
+```
+
+### "BETTER_AUTH_SECRET should be at least 32 characters"
+
+**Solution:** Generate a secure secret:
+```bash
+npx @better-auth/cli secret
+# or
+openssl rand -base64 32
+```
+
+### Google OAuth not working in development
+
+**Solution:**
+1. Add `localhost` and `127.0.0.1` to authorized JavaScript origins
+2. Add `http://localhost:3000/api/auth/callback/google` to authorized redirect URIs
+3. Add test users in OAuth consent screen
+
+### Port 3000 already in use
+
+**Solution:**
+```bash
+# Find process using port 3000
+lsof -i :3000
+
+# Kill the process
+kill -9 <PID>
+
+# Or use a different port
+bun run dev -- -p 3001
+```
+
+## 📚 Resources
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Prisma Documentation](https://www.prisma.io/docs)
+- [Better Auth Documentation](https://www.better-auth.com/docs)
+- [Tailwind CSS](https://tailwindcss.com/docs)
+- [shadcn/ui](https://ui.shadcn.com/)
+
+## 💬 Getting Help
+
+- **GitHub Issues:** Report bugs and request features
+- **GitHub Discussions:** Ask questions and share ideas
+- **Discord:** [Join our community](https://discord.gg/meetup)
+
+## 📄 License
+
+By contributing to Meetup, you agree that your contributions will be licensed under the [MIT License](LICENSE.md).
 
 ---
 
-Thank you for contributing to Gitsprint!
+**Happy coding! 🚀 Made with ❤️ for remote teams**
